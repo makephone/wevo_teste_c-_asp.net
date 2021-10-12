@@ -1,0 +1,32 @@
+﻿@model List<AWS_MYSQL.Models.Usuario>
+
+@{
+    ViewBag.Title = "Lista de Usuarios";
+}
+
+<h1>Lista de Usuários</h1>
+
+<table border="1">
+    <tr>
+        <td width="50px"><b>ID</b></td>
+        <td width="200px"><b>Nome</b></td>
+        <td width="200px"><b>Email</b></td>
+        <td width="100px"><b>Data Cadastro</b></td>
+        <td width="100px"><b>Ação</b></td>
+    </tr>
+
+    @foreach (var item in Model)
+    { <tr>
+        <td>@item.id</td>
+        <td>@item.nome</td>
+        <td>@item.email</td>
+        <td>@item.data_cadastro.ToShortDateString()</td>
+        <td>@Html.ActionLink("Editar", "Cadastrar", "Usuario", new { id = item.id }, new { @class = "btn" }) | @Html.ActionLink("Deletar", "DeletarUsuario", "Usuario", new { id = item.id }, new { @class = "btn" })</td>
+    </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Novo", "Cadastrar", "Usuario")
+</p>

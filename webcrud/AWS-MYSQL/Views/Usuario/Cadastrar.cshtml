@@ -1,0 +1,60 @@
+﻿@model AWS_MYSQL.Models.Usuario
+
+@{
+    ViewBag.Title = "Cadastro de Usuário";
+}
+
+<style>
+    .branco{
+        color:white;
+    }
+</style>
+
+
+<nav>
+<div class="nav-wrapper blue">
+    <a href="#" class="brand-logo ">Cadastro de Clientes</a>
+</div>
+  </nav>
+
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+@using (Html.BeginForm("SalvarUsuario", "Usuario", FormMethod.Post, new { id = "formulario" }))
+{
+
+    @Html.HiddenFor(a => a.id)
+    @Html.HiddenFor(a => a.dataNascimento)
+
+    <p>Nome:</p>
+    @Html.TextBoxFor(a => a.nome)
+
+    <p>Email:</p>
+    @Html.TextBoxFor(a => a.email)
+
+    <p>CPF:</p>
+    @Html.TextBoxFor(a => a.cpf)
+
+
+    <p>Telefone:</p>
+    @Html.TextBoxFor(a => a.telefone)
+
+    <p>Sexo:</p>
+    @Html.TextBoxFor(a => a.sexo)
+
+
+    <br>
+    <p>Nascimento:</p>
+    @Html.DisplayFor(a => a.dataNascimento)
+
+    <br>
+    <div class="center">
+        <input class="branco btn"type="submit" value="Salvar" />
+    </div>
+}
+
+

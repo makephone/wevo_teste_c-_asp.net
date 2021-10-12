@@ -1,0 +1,49 @@
+﻿@model List<AWS_MYSQL.Models.Usuario>
+
+
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+@{
+    ViewBag.Title = "Lista de Usuarios";
+}
+
+<nav>
+    <div class="nav-wrapper blue">
+        <a href="#" class="brand-logo ">Lista de Clientes</a>
+    </div>
+</nav>
+
+<table border="1">
+    <tr>
+        <td width="50px"><b>ID</b></td>
+        <td width="200px"><b>Nome</b></td>
+        <td width="200px"><b>Email</b></td>
+        <td width="100px"><b>Data Nascimento</b></td>
+        <td width="100px"><b>Ação</b></td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.nome.ToUpper()</td>
+            <td>@item.email.ToUpper()</td>
+            <td>@item.dataNascimento.ToShortDateString()</td>
+            <td>@Html.ActionLink("Editar", "Cadastrar", "Usuario", new { id = item.id }, new { @class = "btn" }) | @Html.ActionLink("Deletar", "DeletarUsuario", "Usuario", new { id = item.id }, new { @class = "btn" })</td>
+        </tr>
+    }
+
+</table>
+
+
+ 
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large waves-effect waves-light red" href="/Usuario/Cadastrar"><i class="material-icons">add</i></a>
+    </div>
+

@@ -1,0 +1,26 @@
+﻿@model AWS_MYSQL.Models.Usuario
+
+@{
+    ViewBag.Title = "Cadastro de Usuário";
+}
+
+<h1>Cadastro de Usuário</h1>
+
+@using (Html.BeginForm("SalvarUsuario", "Usuario", FormMethod.Post, new { id = "formulario" }))
+{
+
+    @Html.HiddenFor(a => a.id)
+    @Html.HiddenFor(a => a.data_cadastro)
+
+    <p>Nome:</p>
+    @Html.TextBoxFor(a => a.nome)
+    
+    <p>Email:</p>
+    @Html.TextBoxFor(a => a.email)
+
+    <br>
+    
+    <input type="submit" value="Salvar" />
+}
+
+
